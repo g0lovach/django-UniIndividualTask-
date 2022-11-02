@@ -1,0 +1,27 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+Изменение
+{% endblock %}
+
+{% block content %}
+    <h1>Техника</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            
+            <input type = "text" name = "technic_name" placeholder = "Аппарат" value = "{{ technic.technic_name }}">
+            <select name ="firm">
+                {% for element in firms%}
+                <option {% if element.firm_id == technic.firm.firm_id %} selected {% endif %} value = "{{element.firm_id}}">{{  element.firm_name }}</option>
+                {% endfor %}
+            </select>
+            <select name ="type">
+                {% for element in types%}
+                <option {% if element.type_id == technic.type.type_id %} selected {% endif %} value = "{{element.type_id}}">{{  element.type_name }}</option>
+                {% endfor %}
+            </select>
+            <button type = "submit">Изменить</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+Изменение Типа
+{% endblock %}
+
+{% block content %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            
+            <input type = "text" name = "type_name" placeholder = "Тип" value = "{{ type.type_name }}">
+            <button type = "submit">Изменить</button>
+        </form>
+    </div>
+{% endblock %}

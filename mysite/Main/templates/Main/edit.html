@@ -1,0 +1,17 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+Изменение
+{% endblock %}
+
+{% block content %}
+    <h1>Компании</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            
+            <input type = "text" name = "firm_name" placeholder = "Компания "value = "{{ firm.firm_name }}">
+            <button type = "submit">Изменить</button>
+        </form>
+    </div>
+{% endblock %}

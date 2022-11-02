@@ -1,0 +1,27 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+Создание
+{% endblock %}
+
+{% block content %}
+    <h1>Техника</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            
+            <input type = "text" name = "technic_name" placeholder = "Аппарат">
+            <select name ="firm">
+                {% for element in firms%}
+                <option value = "{{element.firm_id}}">{{  element.firm_name }}</option>
+                {% endfor %}
+            </select>
+            <select name ="type">
+                {% for element in types%}
+                <option value = "{{element.type_id}}">{{  element.type_name }}</option>
+                {% endfor %}
+            </select>
+            <button type = "submit">Добавить</button>
+        </form>
+    </div>
+{% endblock %}

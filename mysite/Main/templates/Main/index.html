@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Компании</h1>
+    {% for element in firms%}
+        <div>
+            <a href="edit/{{element.firm_id}}">{{  element.firm_name }}</a>
+        </div>
+    {% endfor %}
+    <br><br>
+    <h1>Типы камер</h1>
+    {% for element in types%}
+        <div>
+            <a href="edit_type/{{element.type_id}}">{{  element.type_name }}</a>
+        </div>
+    {% endfor %}
+    <br><br>
+    <h1>Техника</h1>
+    <a href="create_technic">Добавить новый элемент</a>
+    <br><br>
+    {% for element in technic%}
+        <div>
+            <a href="edit_technic/{{element.technic_id}}">{{  element.technic_name }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
